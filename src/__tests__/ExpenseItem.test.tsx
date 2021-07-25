@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom/extend-expect";
 import ExpenseItem from "../components/Expenses/ExpenseItem";
 
+// expect.extend({ toHaveTextContent });
 test("Expense Item should componse ExpenseDate", () => {
   const input = {
     date: new Date(2022, 4, 12),
@@ -9,13 +11,12 @@ test("Expense Item should componse ExpenseDate", () => {
     amount: 45,
   };
 
-  render(<ExpenseItem {...input} />);
+  const { debug } = render(<ExpenseItem {...input} />);
+  debug();
   const expDate = screen.getByTestId("expense-date");
   expect(expDate).toBeInTheDocument();
-  expect(screen.getByTestId("item-price").textContent).toBe(
-    `$${input.amount}`
-  );
-  expect(screen.getByTestId("item-title").textContent).toBe(input.title);
+  expect(screen.getByTestId("item-price").textContent).toBe(`$${input.amount}`);
+  expect(screen.getByTestId("item-title")).toHaveTextContent(input.title);
 });
 test("Title should change when the test button is clicked", () => {
   const input = {
@@ -25,8 +26,7 @@ test("Title should change when the test button is clicked", () => {
   };
 
   render(<ExpenseItem {...input} />);
-  const testButton = screen.getByTestId('test-button');
+  const testButton = screen.getByTestId("test-button");
   userEvent.click(testButton);
-  expect(screen.getByTestId('item-title').textContent).toBe("Clicked !!!");
-
-})
+  expect(screen.getByTestId("item-title").textContent).toBe("Clicked !!!");
+});
