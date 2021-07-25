@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ExpenseItems } from "../components/ExpenseItems";
+import { Expenses } from "../components/Expenses";
 
 const expenses = [
   {
@@ -24,6 +24,6 @@ const expenses = [
 ];
 
 test("ExpenseItems should display a list of ExtenseItem", () => {
-  render(<ExpenseItems expenses={expenses} />);
+  render(<Expenses items={expenses} />);
   expect(screen.getAllByTestId('expense-item')).toHaveLength(4);
 });

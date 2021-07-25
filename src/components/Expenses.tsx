@@ -1,15 +1,15 @@
 import ExpenseItem from "./ExpenseItem";
 import { IExpenseItem } from "./ExpenseItem";
-import "./ExpenseItems.css";
+import "./Expenses.css";
 
 interface IExpenseItems {
-  expenses: IExpenseItem[];
+  items: IExpenseItem[];
 }
 
-export const ExpenseItems: React.FC<IExpenseItems> = function (props) {
+export const Expenses: React.FC<IExpenseItems> = function (props) {
   return (
     <div className="expenses">
-      {props.expenses.map((data) => {
+      {props.items.map((data) => {
         return (
           <ExpenseItem
             key={data.id}
