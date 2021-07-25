@@ -1,3 +1,4 @@
+import { Card } from "./Card";
 import ExpenseDate, { IExpenseDate } from "./ExpenseDate";
 
 import "./ExpenseItem.css";
@@ -10,7 +11,7 @@ export interface IExpenseItem extends IExpenseDate {
 
 const ExpenseItem: React.FC<IExpenseItem> = function ExpenseItem(props) {
   return (
-    <div className="expense-item" data-testid="expense-item">
+    <Card className="expense-item" dataTestId="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2 data-testid="item-title">{props.title}</h2>
@@ -18,7 +19,7 @@ const ExpenseItem: React.FC<IExpenseItem> = function ExpenseItem(props) {
           ${props.amount}
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

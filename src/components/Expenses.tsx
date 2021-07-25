@@ -1,3 +1,4 @@
+import { Card } from "./Card";
 import ExpenseItem from "./ExpenseItem";
 import { IExpenseItem } from "./ExpenseItem";
 import "./Expenses.css";
@@ -8,7 +9,7 @@ interface IExpenseItems {
 
 export const Expenses: React.FC<IExpenseItems> = function (props) {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       {props.items.map((data) => {
         return (
           <ExpenseItem
@@ -19,6 +20,6 @@ export const Expenses: React.FC<IExpenseItems> = function (props) {
           />
         );
       })}
-    </div>
+    </Card>
   );
 };
