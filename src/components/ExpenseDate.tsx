@@ -9,10 +9,10 @@ const ExpenseDate: React.FC<IExpenseDate> = function (props) {
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
   const year = props.date.getFullYear();
   return (
-    <div className="expense-date">
-      <div className="expense-date__month">{month}</div>
-      <div className="expense-date__year">{year}</div>
-      <div className="expense-date__day">{day}</div>
+    <div className="expense-date" data-testid="expense-date">
+      <div className="expense-date__month" data-testid="month">{month}</div>
+      <div className="expense-date__year" data-testid="year">{year}</div>
+      <div className="expense-date__day" data-testid="day">{day}</div>
     </div>
   );
 };
