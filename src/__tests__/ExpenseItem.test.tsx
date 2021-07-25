@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import ExpenseItem from "../components/Expenses/ExpenseItem";
 
 test("Expense Item should componse ExpenseDate", () => {
@@ -16,3 +17,16 @@ test("Expense Item should componse ExpenseDate", () => {
   );
   expect(screen.getByTestId("item-title").textContent).toBe(input.title);
 });
+test("Title should change when the test button is clicked", () => {
+  const input = {
+    date: new Date(2022, 4, 12),
+    title: "My new expense",
+    amount: 45,
+  };
+
+  render(<ExpenseItem {...input} />);
+  const testButton = screen.getByTestId('test-button');
+  userEvent.click(testButton);
+  expect(screen.getByTestId('item-title').textContent).toBe("Clicked !!!");
+
+})
