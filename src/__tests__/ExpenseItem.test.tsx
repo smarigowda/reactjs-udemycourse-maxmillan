@@ -1,5 +1,5 @@
-import ExpenseItem from "../components/ExpenseItem";
 import { render, screen } from "@testing-library/react";
+import ExpenseItem from "../components/Expenses/ExpenseItem";
 
 test("Expense Item should componse ExpenseDate", () => {
   const input = {

@@ -1,5 +1,5 @@
-import ExpenseDate from "../components/ExpenseDate";
 import { render, screen } from '@testing-library/react';
+import ExpenseDate from '../components/Expenses/ExpenseDate';
 
 test("ExpenseDate should render correct Year, Month and Day", () => {
   const date = new Date(2021, 5, 12);

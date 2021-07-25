@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import { Card } from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import { IExpenseItem } from "./ExpenseItem";
 import "./Expenses.css";
@@ -7,7 +7,7 @@ interface IExpenseItems {
   items: IExpenseItem[];
 }
 
-export const Expenses: React.FC<IExpenseItems> = function (props) {
+export const Expenses: React.FC<IExpenseItems> = (props) => {
   return (
     <Card className="expenses">
       {props.items.map((data) => {

@@ -5,7 +5,7 @@ interface ICard {
   dataTestId?: string;
 }
 
-export const Card: React.FC<ICard> = function (props) {
+export const Card: React.FC<ICard> = (props) => {
   const classNames = "card " + props.className;
   return (
     <div className={classNames} data-testid={props.dataTestId}>
