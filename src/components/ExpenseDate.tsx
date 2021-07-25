@@ -1,8 +1,9 @@
 import "./ExpenseDate.css";
 
-interface IExpenseDate {
+export interface IExpenseDate {
   date: Date;
 }
+
 const ExpenseDate: React.FC<IExpenseDate> = function (props) {
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
