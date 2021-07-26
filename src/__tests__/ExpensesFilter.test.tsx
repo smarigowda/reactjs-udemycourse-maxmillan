@@ -8,5 +8,5 @@ test("Year filter should call the call back", () => {
   const filterByYear = screen.getByLabelText("Filter by year");
   userEvent.selectOptions(filterByYear, "2020");
   // debug();
-  expect(callback).toHaveBeenCalled();
+  expect(callback).toHaveBeenNthCalledWith(1, "2020");
 });
