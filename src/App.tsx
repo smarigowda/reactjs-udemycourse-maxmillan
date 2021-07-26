@@ -1,5 +1,7 @@
 import "./App.css";
 import { Expenses } from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+import { IExpenseData } from "./components/NewExpense/ExpenseForm";
 
 const App = () => {
   const expenses = [
@@ -23,12 +25,19 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense: IExpenseData) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
+
   return (
     <div className="App">
       <h1>Lets get started...</h1>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;

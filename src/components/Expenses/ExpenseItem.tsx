@@ -15,8 +15,8 @@ const ExpenseItem: React.FC<IExpenseItem> = (props) => {
   const [title, setTitle] = useState(props.title);
   const clickHandler = () => {
     setTitle("Clicked !!!");
-    // updated value is not availabe immediately,
-    // so the title will have old value when the button is clicked for the first time
+    // note that the updated value is not availabe immediately,
+    // console log below will print old value when the button is clicked for the first time
     // console.log(title);
   };
 

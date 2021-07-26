@@ -12,7 +12,7 @@ test("Expense Item should componse ExpenseDate", () => {
   };
 
   const { debug } = render(<ExpenseItem {...input} />);
-  debug();
+  // debug();
   const expDate = screen.getByTestId("expense-date");
   expect(expDate).toBeInTheDocument();
   expect(screen.getByTestId("item-price").textContent).toBe(`$${input.amount}`);
