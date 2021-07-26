@@ -4,6 +4,7 @@ import "./ExpensesFilter.css";
 
 export interface IExpensesFilter {
   filteredYear: (year: string) => void;
+  selectedYear: string;
 }
 
 const ExpensesFilter: React.FC<IExpensesFilter> = (props) => {
@@ -15,7 +16,11 @@ const ExpensesFilter: React.FC<IExpensesFilter> = (props) => {
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label htmlFor="filter-year">Filter by year</label>
-        <select id="filter-year" onChange={onChangeHandler}>
+        <select
+          id="filter-year"
+          value={props.selectedYear}
+          onChange={onChangeHandler}
+        >
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
