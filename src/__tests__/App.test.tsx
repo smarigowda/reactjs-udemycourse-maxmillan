@@ -8,6 +8,10 @@ test("renders learn react link", () => {
   const linkElement = screen.getByText(/lets get started/i);
   expect(linkElement).toBeInTheDocument();
 
+  // Component Integration Test - ExpensesFilter
+  const yearFilter = screen.getByLabelText('Filter by year');
+  userEvent.selectOptions(yearFilter, "2020");
+
   const expenseDateInput = screen.getByLabelText("Date");
   const expenseTitle = screen.getByLabelText("Title");
   const expenseAmount = screen.getByLabelText("Amount");

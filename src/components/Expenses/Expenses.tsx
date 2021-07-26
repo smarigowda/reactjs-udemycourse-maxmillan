@@ -10,7 +10,7 @@ interface IExpenseItems {
 
 export const Expenses: React.FC<IExpenseItems> = (props) => {
   const filteredYear = (year: string) => {
-    console.log("at Expenses: onExpensesFilterHandler called");
+    // console.log("at Expenses: onExpensesFilterHandler called");
     console.log(year);
   };
   return (

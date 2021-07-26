@@ -22,5 +22,5 @@ test("ExpenseForm should be submitted", () => {
   userEvent.type(expenseAmount, "600");
   userEvent.click(screen.getByTestId("submit-button"));
   expect(submitHandler).toHaveBeenNthCalledWith(1, expected);
-  debug();
+  // debug();
 });

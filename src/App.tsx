@@ -27,8 +27,8 @@ const App = () => {
   ];
 
   const addExpenseHandler = (expense: IExpenseData) => {
-    console.log("In App.js");
-    console.log(expense);
+    // console.log("In App.js");
+    // console.log(expense);
   };
 
   return (
