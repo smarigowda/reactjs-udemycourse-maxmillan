@@ -26,7 +26,5 @@ test("Title should change when the test button is clicked", () => {
   };
 
   render(<ExpenseItem {...input} />);
-  const testButton = screen.getByTestId("test-button");
-  userEvent.click(testButton);
-  expect(screen.getByTestId("item-title").textContent).toBe("Clicked !!!");
+  expect(screen.getByTestId("expense-item")).toBeInTheDocument();
 });
