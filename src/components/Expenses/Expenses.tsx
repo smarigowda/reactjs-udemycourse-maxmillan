@@ -1,3 +1,4 @@
+import ExpensesFilter from "../NewExpense/ExpensesFilter";
 import { Card } from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import { IExpenseItem } from "./ExpenseItem";
@@ -8,18 +9,25 @@ interface IExpenseItems {
 }
 
 export const Expenses: React.FC<IExpenseItems> = (props) => {
+  const filteredYear = (year: string) => {
+    console.log("at Expenses: onExpensesFilterHandler called");
+    console.log(year);
+  };
   return (
-    <Card className="expenses">
-      {props.items.map((data) => {
-        return (
-          <ExpenseItem
-            key={data.id}
-            date={data.date}
-            title={data.title}
-            amount={data.amount}
-          />
-        );
-      })}
-    </Card>
+    <div>
+      <Card className="expenses">
+        <ExpensesFilter filteredYear={filteredYear} />
+        {props.items.map((data) => {
+          return (
+            <ExpenseItem
+              key={data.id}
+              date={data.date}
+              title={data.title}
+              amount={data.amount}
+            />
+          );
+        })}
+      </Card>
+    </div>
   );
 };
