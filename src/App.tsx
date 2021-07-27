@@ -2,9 +2,10 @@ import "./App.css";
 import { Expenses } from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 import { IExpenseData } from "./components/NewExpense/ExpenseForm";
+import { IExpenseItem } from "./components/Expenses/ExpenseItem";
 
 const App = () => {
-  const expenses = [
+  const expenses: IExpenseItem[] = [
     {
       id: "e1",
       title: "Toilet Paper",

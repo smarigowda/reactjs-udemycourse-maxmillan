@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Expenses } from "../components/Expenses/Expenses";
 
 const expenses = [
@@ -23,7 +24,14 @@ const expenses = [
   },
 ];
 
-test("ExpenseItems should display a list of ExtenseItem", () => {
+beforeEach(() => {
   render(<Expenses items={expenses} />);
-  expect(screen.getAllByTestId('expense-item')).toHaveLength(4);
+})
+test("should display a list of expense items filtered by the year", () => {
+  expect(screen.getAllByTestId("expense-item")).toHaveLength(3);
 });
+test('when a year is selected from the list, it should filter the list', () => {
+  const yearFilter = screen.getByLabelText('Filter by year');
+  userEvent.selectOptions(yearFilter, "2020");
+  expect(screen.getAllByTestId("expense-item")).toHaveLength(1);
+})
