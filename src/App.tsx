@@ -30,7 +30,7 @@ const App = () => {
   const [expenses, setExpenses] = useState(initialExpenses);
 
   const addExpenseHandler = (expense: INewExpenseDataWithId) => {
-    setExpenses([expense, ...expenses]);
+    setExpenses((prevExpenses) => [expense, ...prevExpenses]);
   };
 
   return (
