@@ -4,16 +4,19 @@ import ExpenseForm, { IExpenseData } from "./ExpenseForm";
 import "./NewExpense.css";
 
 export interface INewExpense {
-  onAddExpense: (data: IExpenseData) => void;
+  onAddExpense: (data: INewExpenseDataWithId) => void;
 }
 
+export interface INewExpenseDataWithId extends IExpenseData {
+  id: string;
+}
 const NewExpense: React.FC<INewExpense> = (props) => {
   const saveExpenseDataHandler = (enteredExpenseData: IExpenseData) => {
-    const expenseData = {
+    const expenseDataWithId = {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    props.onAddExpense(expenseData);
+    props.onAddExpense(expenseDataWithId);
   };
 
   return (

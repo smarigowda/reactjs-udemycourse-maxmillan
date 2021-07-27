@@ -8,13 +8,13 @@ import ExpenseForm, {
 test("ExpenseForm should be submitted", () => {
   const submitHandler = jest.fn();
 
-  const { debug } = render(<ExpenseForm onSaveExpenseData={submitHandler} />);
+  render(<ExpenseForm onSaveExpenseData={submitHandler} />);
   const expenseDateInput = screen.getByTestId("expense-date");
   const expenseTitle = screen.getByTestId("expense-title");
   const expenseAmount = screen.getByTestId("expense-amount");
   const expected: IExpenseData = {
     title: "my new ipad",
-    amount: "600",
+    amount: 600,
     date: new Date("2021-01-01"),
   };
   userEvent.type(expenseDateInput, "2021-01-01");

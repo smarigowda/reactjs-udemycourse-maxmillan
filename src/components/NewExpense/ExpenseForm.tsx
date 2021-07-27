@@ -4,7 +4,7 @@ import "./ExpenseForm.css";
 
 export interface IExpenseData {
   title: string;
-  amount: string;
+  amount: number;
   date: Date;
 }
 
@@ -57,7 +57,7 @@ const ExpenseForm: React.FC<IExpenseForm> = (props) => {
 
     const expenseData: IExpenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: Number(enteredAmount),
       date: new Date(enteredDate),
     };
 

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import ExpensesFilter from "../NewExpense/ExpensesFilter";
+import { INewExpenseDataWithId } from "../NewExpense/NewExpense";
 import { Card } from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
-import { IExpenseItem } from "./ExpenseItem";
 import "./Expenses.css";
 
 export interface IExpenseItems {
-  items: IExpenseItem[];
+  items: INewExpenseDataWithId[];
 }
 
 export const Expenses: React.FC<IExpenseItems> = (props) => {
