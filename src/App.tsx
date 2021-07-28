@@ -4,6 +4,7 @@ import NewExpense, {
   INewExpenseDataWithId,
 } from "./components/NewExpense/NewExpense";
 import { useState } from "react";
+import AddNewExpense from "./components/NewExpense/AddNewExpense";
 
 const initialExpenses: INewExpenseDataWithId[] = [
   {
@@ -28,7 +29,8 @@ const initialExpenses: INewExpenseDataWithId[] = [
 ];
 const App = () => {
   const [expenses, setExpenses] = useState(initialExpenses);
-  const [showNewExpense, setShowNewExpense] = useState(true);
+  const [showNewExpense, setShowNewExpense] = useState(false);
+  const [showAddNewExpenseButton, setShowAddNewExpenseButton] = useState(true);
 
   const addExpenseHandler = (expense: INewExpenseDataWithId) => {
     setExpenses((prevExpenses) => [expense, ...prevExpenses]);
@@ -37,10 +39,19 @@ const App = () => {
   const onCancelClick = () => {
     console.log("On Cancel clicked...");
     setShowNewExpense(false);
+    setShowAddNewExpenseButton(true);
+  };
+
+  const onAddNewExpenseClick = () => {
+    setShowAddNewExpenseButton(false);
+    setShowNewExpense(true);
   };
   return (
     <div className="App">
       <h1>Lets get started...</h1>
+      {showAddNewExpenseButton && (
+        <AddNewExpense onAddNewExpenseClick={onAddNewExpenseClick} />
+      )}
       {showNewExpense && (
         <NewExpense
           onAddExpense={addExpenseHandler}

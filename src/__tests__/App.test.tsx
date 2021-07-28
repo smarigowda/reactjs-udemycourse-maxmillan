@@ -7,9 +7,11 @@ test("renders learn react link", () => {
   render(<App />);
   const linkElement = screen.getByText(/lets get started/i);
   expect(linkElement).toBeInTheDocument();
+  const addNewExpenseButton = screen.getByTestId("addNewExpenseButton");
+  userEvent.click(addNewExpenseButton);
 
   // Component Integration Test - ExpensesFilter
-  const yearFilter = screen.getByLabelText('Filter by year');
+  const yearFilter = screen.getByLabelText("Filter by year");
   userEvent.selectOptions(yearFilter, "2020");
 
   const expenseDateInput = screen.getByLabelText("Date");

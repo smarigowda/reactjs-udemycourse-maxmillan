@@ -7,8 +7,14 @@ import ExpenseForm, {
 
 test("ExpenseForm should be submitted", () => {
   const submitHandler = jest.fn();
+  const onCancelClick = jest.fn();
 
-  render(<ExpenseForm onSaveExpenseData={submitHandler} />);
+  render(
+    <ExpenseForm
+      onSaveExpenseData={submitHandler}
+      onCancelClick={onCancelClick}
+    />
+  );
   const expenseDateInput = screen.getByTestId("expense-date");
   const expenseTitle = screen.getByTestId("expense-title");
   const expenseAmount = screen.getByTestId("expense-amount");
