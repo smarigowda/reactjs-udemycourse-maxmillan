@@ -42,6 +42,10 @@ const App = () => {
     setShowAddNewExpenseButton(true);
   };
 
+  const onSubmitClick = () => {
+    setShowNewExpense(false);
+    setShowAddNewExpenseButton(true);
+  };
   const onAddNewExpenseClick = () => {
     setShowAddNewExpenseButton(false);
     setShowNewExpense(true);
@@ -56,6 +60,7 @@ const App = () => {
         <NewExpense
           onAddExpense={addExpenseHandler}
           onCancelClick={onCancelClick}
+          onSubmitClick={onSubmitClick}
         />
       )}
       <Expenses items={expenses} />

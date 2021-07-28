@@ -6,6 +6,7 @@ import "./NewExpense.css";
 export interface INewExpense {
   onAddExpense: (data: INewExpenseDataWithId) => void;
   onCancelClick: () => void;
+  onSubmitClick: () => void;
 }
 
 export interface INewExpenseDataWithId extends IExpenseData {
@@ -25,6 +26,7 @@ const NewExpense: React.FC<INewExpense> = (props) => {
       <ExpenseForm
         onSaveExpenseData={saveExpenseDataHandler}
         onCancelClick={props.onCancelClick}
+        onSubmitClick={props.onSubmitClick}
       />
     </div>
   );

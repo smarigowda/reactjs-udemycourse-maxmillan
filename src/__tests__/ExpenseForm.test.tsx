@@ -8,11 +8,13 @@ import ExpenseForm, {
 test("ExpenseForm should be submitted", () => {
   const submitHandler = jest.fn();
   const onCancelClick = jest.fn();
+  const onSubmitClick = jest.fn();
 
   render(
     <ExpenseForm
       onSaveExpenseData={submitHandler}
       onCancelClick={onCancelClick}
+      onSubmitClick={onSubmitClick}
     />
   );
   const expenseDateInput = screen.getByTestId("expense-date");
