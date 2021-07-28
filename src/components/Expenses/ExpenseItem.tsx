@@ -11,15 +11,17 @@ export interface IExpenseItem extends IExpenseDate {
 
 const ExpenseItem: React.FC<IExpenseItem> = (props) => {
   return (
-    <Card className="expense-item" dataTestId="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2 data-testid="item-title">{props.title}</h2>
-        <div className="expense-item__price" data-testid="item-price">
-          ${props.amount}
+    <li>
+      <Card className="expense-item" dataTestId="expense-item">
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          <h2 data-testid="item-title">{props.title}</h2>
+          <div className="expense-item__price" data-testid="item-price">
+            ${props.amount}
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </li>
   );
 };
 

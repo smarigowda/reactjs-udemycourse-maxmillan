@@ -2,8 +2,8 @@ import { useState } from "react";
 import ExpensesFilter from "../NewExpense/ExpensesFilter";
 import { INewExpenseDataWithId } from "../NewExpense/NewExpense";
 import { Card } from "../UI/Card";
-import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
+import ExpensesList from "./ExpensesList";
 
 export interface IExpenseItems {
   items: INewExpenseDataWithId[];
@@ -25,23 +25,7 @@ export const Expenses: React.FC<IExpenseItems> = (props) => {
           filteredYear={filteredYear}
           selectedYear={selectedYear}
         />
-        {filteredItems.length === 0 && (
-          <p className="red expense-item" data-testid="no-items-found">
-            No Expenses Found...
-          </p>
-        )}
-
-        {filteredItems.length > 0 &&
-          filteredItems.map((data) => {
-            return (
-              <ExpenseItem
-                key={data.id}
-                date={data.date}
-                title={data.title}
-                amount={data.amount}
-              />
-            );
-          })}
+        <ExpensesList items={filteredItems} />
       </Card>
     </div>
   );
