@@ -11,7 +11,6 @@ export interface IExpenseData {
 export interface IExpenseForm {
   onSaveExpenseData: (data: IExpenseData) => void;
   onCancelClick: () => void;
-  onSubmitClick: () => void;
 }
 
 const ExpenseForm: React.FC<IExpenseForm> = (props) => {
@@ -109,11 +108,7 @@ const ExpenseForm: React.FC<IExpenseForm> = (props) => {
       </div>
       <div className="actions-container new-expense__control">
         <div className="new-expense__actions">
-          <button
-            type="submit"
-            data-testid="submit-button"
-            onClick={props.onSubmitClick}
-          >
+          <button type="submit" data-testid="submit-button">
             Add Expense
           </button>
         </div>
