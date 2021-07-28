@@ -10,6 +10,7 @@ export interface IExpenseData {
 
 export interface IExpenseForm {
   onSaveExpenseData: (data: IExpenseData) => void;
+  onCancelClick: () => void;
 }
 
 const ExpenseForm: React.FC<IExpenseForm> = (props) => {
@@ -67,7 +68,7 @@ const ExpenseForm: React.FC<IExpenseForm> = (props) => {
     setEnteredDate("");
   };
 
-  return (
+  let newExpenseForm = (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
@@ -105,13 +106,22 @@ const ExpenseForm: React.FC<IExpenseForm> = (props) => {
           />
         </div>
       </div>
-      <div className="new-expense__actions">
-        <button type="submit" data-testid="submit-button">
-          Add Expense
-        </button>
+      <div className="actions-container new-expense__control">
+        <div className="new-expense__actions">
+          <button type="submit" data-testid="submit-button">
+            Add Expense
+          </button>
+        </div>
+        <div className="new-expense__actions">
+          <button data-testid="cancel-button" onClick={props.onCancelClick}>
+            Cancel
+          </button>
+        </div>
       </div>
     </form>
   );
+
+  return newExpenseForm;
 };
 
 export default ExpenseForm;

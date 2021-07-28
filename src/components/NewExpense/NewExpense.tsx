@@ -5,6 +5,7 @@ import "./NewExpense.css";
 
 export interface INewExpense {
   onAddExpense: (data: INewExpenseDataWithId) => void;
+  onCancelClick: () => void;
 }
 
 export interface INewExpenseDataWithId extends IExpenseData {
@@ -21,7 +22,10 @@ const NewExpense: React.FC<INewExpense> = (props) => {
 
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      <ExpenseForm
+        onSaveExpenseData={saveExpenseDataHandler}
+        onCancelClick={props.onCancelClick}
+      />
     </div>
   );
 };

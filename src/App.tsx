@@ -28,15 +28,25 @@ const initialExpenses: INewExpenseDataWithId[] = [
 ];
 const App = () => {
   const [expenses, setExpenses] = useState(initialExpenses);
+  const [showNewExpense, setShowNewExpense] = useState(true);
 
   const addExpenseHandler = (expense: INewExpenseDataWithId) => {
     setExpenses((prevExpenses) => [expense, ...prevExpenses]);
   };
 
+  const onCancelClick = () => {
+    console.log("On Cancel clicked...");
+    setShowNewExpense(false);
+  };
   return (
     <div className="App">
       <h1>Lets get started...</h1>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      {showNewExpense && (
+        <NewExpense
+          onAddExpense={addExpenseHandler}
+          onCancelClick={onCancelClick}
+        />
+      )}
       <Expenses items={expenses} />
     </div>
   );
