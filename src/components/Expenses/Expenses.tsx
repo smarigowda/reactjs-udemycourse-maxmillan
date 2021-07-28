@@ -25,16 +25,23 @@ export const Expenses: React.FC<IExpenseItems> = (props) => {
           filteredYear={filteredYear}
           selectedYear={selectedYear}
         />
-        {filteredItems.map((data) => {
-          return (
-            <ExpenseItem
-              key={data.id}
-              date={data.date}
-              title={data.title}
-              amount={data.amount}
-            />
-          );
-        })}
+        {filteredItems.length === 0 && (
+          <p className="red expense-item" data-testid="no-items-found">
+            No Expenses Found...
+          </p>
+        )}
+
+        {filteredItems.length > 0 &&
+          filteredItems.map((data) => {
+            return (
+              <ExpenseItem
+                key={data.id}
+                date={data.date}
+                title={data.title}
+                amount={data.amount}
+              />
+            );
+          })}
       </Card>
     </div>
   );

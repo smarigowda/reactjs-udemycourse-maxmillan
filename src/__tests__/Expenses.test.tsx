@@ -23,15 +23,19 @@ const expenses = [
     date: new Date(2021, 5, 12),
   },
 ];
-
 beforeEach(() => {
   render(<Expenses items={expenses} />);
-})
+});
 test("should display a list of expense items filtered by the year", () => {
   expect(screen.getAllByTestId("expense-item")).toHaveLength(3);
 });
-test('when a year is selected from the list, it should filter the list', () => {
-  const yearFilter = screen.getByLabelText('Filter by year');
+test("when a year is selected from the list, it should filter the list", () => {
+  const yearFilter = screen.getByLabelText("Filter by year");
   userEvent.selectOptions(yearFilter, "2020");
   expect(screen.getAllByTestId("expense-item")).toHaveLength(1);
-})
+});
+test("when the list is empty, a message saying so should be displayed", () => {
+  const yearFilter = screen.getByLabelText("Filter by year");
+  userEvent.selectOptions(yearFilter, "2022");
+  expect(screen.getByTestId("no-items-found")).toBeInTheDocument();
+});
