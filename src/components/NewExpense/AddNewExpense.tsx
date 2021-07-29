@@ -6,7 +6,7 @@ interface IAddNewExpense {
 
 const AddNewExpense: React.FC<IAddNewExpense> = (props) => {
   return (
-    <div className="new-expense">
+    <div className="new-expense" data-testid="add-new-expense">
       <button data-testid="addNewExpenseButton" onClick={props.onAddNewExpenseClick}>Add New Expense</button>
     </div>
   );
